@@ -1,4 +1,4 @@
-package sample;
+package sample.trans;
 
 import javafx.stage.Stage;
 

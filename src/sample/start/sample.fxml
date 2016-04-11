@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #666699;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #666699;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.start.Controller">
    <children>
       <RadioButton fx:id="trans" layoutX="49.0" layoutY="251.0" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" onAction="#trans" style="-fx-mark-color: #666699;" text="Транспонировать матрицу" textFill="WHITE" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="251.0">
          <font>
@@ -22,7 +22,7 @@
             <Font name="Yu Gothic UI Light" size="13.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="slau" id="radio-button" layoutX="49.0" layoutY="157.0" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" onAction="#slau" style="-fx-mark-color: #666699;" stylesheets="@button.css" text="Решить СЛАУ" textFill="WHITE" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="157.0">
+      <RadioButton fx:id="slau" id="slau" layoutX="49.0" layoutY="157.0" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" onAction="#slau" style="-fx-mark-color: #666699;" text="Решить СЛАУ" textFill="WHITE" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="157.0">
          <font>
             <Font name="Yu Gothic UI Light" size="13.0" />
          </font>

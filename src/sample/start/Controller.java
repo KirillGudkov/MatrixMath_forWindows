@@ -1,4 +1,4 @@
-package sample;
+package sample.start;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import sample.multOnNumber.MultOnNumber;
+import sample.multiplicate.MultipleMatrix;
+import sample.slau.Slau;
+import sample.trans.Trans;
 
 public class Controller {
     @FXML
@@ -41,17 +45,17 @@ public class Controller {
         this.stage = primaryStage;
     }
 
-public void slau(ActionEvent actionEvent) {
-    nextButton.setDisable(false);
+    public void slau(ActionEvent actionEvent) {
+        nextButton.setDisable(false);
     }
-public void multipleMatrix(ActionEvent actionEvent) {
-    nextButton.setDisable(false);
+    public void multipleMatrix(ActionEvent actionEvent) {
+        nextButton.setDisable(false);
     }
-public void multOnNumber(ActionEvent actionEvent) {
-    nextButton.setDisable(false);
+    public void multOnNumber(ActionEvent actionEvent) {
+        nextButton.setDisable(false);
     }
-public void trans(ActionEvent actionEvent) {
-    nextButton.setDisable(false);
+    public void trans(ActionEvent actionEvent) {
+        nextButton.setDisable(false);
     }
 
     /*
@@ -60,22 +64,22 @@ public void trans(ActionEvent actionEvent) {
     */
     public void Go(ActionEvent actionEvent) throws Exception{
         pressedRadio = ((RadioButton)sdf.getSelectedToggle()).getId();
-        System.out.println(pressedRadio);
         switch (pressedRadio) {
             case "slau": {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("Slau.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("../slau/Slau.fxml"));
                 Parent root = fxmlLoader.load();
                 Scene scene = new Scene(root, 900, 500);
                 Slau controller = fxmlLoader.getController();
                 controller.setStage(stage);
                 stage.setTitle("Решение СЛАУ");
                 stage.setScene(scene);
+                controller.Slau();
                 break;
             }
             case "multipleMatrix": {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("MultipleMatrix.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("../multiplicate/MultipleMatrix.fxml"));
                 Parent root = fxmlLoader.load();
                 Scene scene = new Scene(root, 900, 500);
                 MultipleMatrix controller = fxmlLoader.getController();
@@ -86,7 +90,7 @@ public void trans(ActionEvent actionEvent) {
             }
             case "multOnNumber": {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("MultOnNumber.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("../multOnNumber/MultOnNumber.fxml"));
                 Parent root = fxmlLoader.load();
                 Scene scene = new Scene(root, 900, 500);
                 MultOnNumber controller = fxmlLoader.getController();
@@ -97,7 +101,7 @@ public void trans(ActionEvent actionEvent) {
             }
             case "trans": {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("Trans.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("../trans/Trans.fxml"));
                 Parent root = fxmlLoader.load();
                 Scene scene = new Scene(root, 900, 500);
                 Trans controller = fxmlLoader.getController();
