@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #666699;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.slau.Slau">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #339999;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.slau.Slau">
    <children>
       <Label layoutX="41.0" layoutY="20.0" prefHeight="29.0" prefWidth="76.0" text="Назад" textFill="WHITE">
          <font>
@@ -25,7 +27,7 @@
             <Font name="Yu Gothic UI Light" size="15.0" />
          </font>
       </Button>
-      <ComboBox fx:id="countValue" layoutX="319.0" layoutY="113.0" onAction="#countChange" prefHeight="25.0" prefWidth="137.0" promptText="Не выбрано..." style="-fx-background-color: #666699; -fx-mark-color: #666699; -fx-color: #666699; -fx-border-color: white; -fx-border-radius: 2px;" />
+      <ComboBox fx:id="countValue" layoutX="319.0" layoutY="113.0" onAction="#countChange" prefHeight="25.0" prefWidth="137.0" promptText="Не выбрано..." style="-fx-background-color: #339999; -fx-mark-color: #339999; -fx-color: #666699; -fx-border-color: white; -fx-border-radius: 2px;" />
       <Button fx:id="next" layoutX="807.0" layoutY="454.0" mnemonicParsing="false" onAction="#goForward" prefHeight="33.0" prefWidth="83.0" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: white; -fx-border-radius: 2px;" text="Далее" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Light" size="15.0" />

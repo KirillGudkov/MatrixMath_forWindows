@@ -4,21 +4,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.start.Controller;
-
-import java.lang.reflect.Array;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class Slau {
     private Stage stage;
@@ -31,8 +25,6 @@ public class Slau {
     @FXML
     private ComboBox countValue;
     @FXML
-    private Button ButtonBack;
-    @FXML
     AnchorPane anchor;
     @FXML
     Pane paneForValue;
@@ -40,7 +32,7 @@ public class Slau {
     Pane paneForVector;
 
     public void Slau() {
-        observableList.addAll(2, 3, 4, 5);
+        observableList.addAll(2, 3, 4, 5, 6);
         countValue.setItems(observableList);
     }
 
@@ -61,14 +53,14 @@ public class Slau {
                 matrix[i][j].setLayoutX(10 + (j * 55));
                 matrix[i][j].setLayoutY(i * 45);
                 matrix[i][j].setPromptText("0.0");
-                matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color: #666699; -fx-border-color: white; " +
+                matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white; " +
                                         "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
             }
             vector[i] = new TextField();
             paneForVector.getChildren().add(vector[i]);
             vector[i].setLayoutY(i * 45);
             vector[i].setPromptText("0.0");
-            vector[i].setStyle("-fx-max-width: 50px; -fx-background-color: #666699; -fx-border-color: white;" +
+            vector[i].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white;" +
                     " -fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
         }
     }
@@ -97,6 +89,6 @@ public class Slau {
             paneForVector.getChildren().remove(vector[i]);
             vector[i] = null;
         }
-        InitMatrix();
+       InitMatrix();
     }
 }

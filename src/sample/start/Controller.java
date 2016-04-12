@@ -86,6 +86,7 @@ public class Controller {
                 controller.setStage(stage);
                 stage.setTitle("Умножение матриц");
                 stage.setScene(scene);
+                controller.MultipleMatrix();
                 break;
             }
             case "multOnNumber": {
