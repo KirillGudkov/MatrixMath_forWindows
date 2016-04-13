@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
+import sample.Matrix;
 import sample.start.Controller;
 
 import java.util.ArrayList;
@@ -19,20 +21,20 @@ import java.util.List;
 
 public class MultipleMatrix {
     private Stage stage;
-    private TextField[][] matrixOne;
-    private TextField[][] matrixTwo;
+    private Matrix matrixOne;
+    private Matrix matrixTwo;
     private Label labelSign;
     private String valueSign;
     private int widthOne;
     private int heightOne;
     private int widthTwo;
     private int heightTwo;
-    List<Integer> listOneBox = new ArrayList<>();
-    ObservableList<Integer> observableListOne = FXCollections.observableList(listOneBox);
-    List<Integer> listTwoBox = new ArrayList<>();
-    ObservableList<Integer> observableListTwo = FXCollections.observableList(listTwoBox);
-    List<String> listForSign = new ArrayList<>();
-    ObservableList<String> observableListSign = FXCollections.observableList(listForSign);
+    private List<Integer> listOneBox = new ArrayList<>();
+    private ObservableList<Integer> observableListOne = FXCollections.observableList(listOneBox);
+    private List<Integer> listTwoBox = new ArrayList<>();
+    private ObservableList<Integer> observableListTwo = FXCollections.observableList(listTwoBox);
+    private List<String> listForSign = new ArrayList<>();
+    private ObservableList<String> observableListSign = FXCollections.observableList(listForSign);
     @FXML
     ComboBox widthMatrixOne;
     @FXML
@@ -53,7 +55,7 @@ public class MultipleMatrix {
         this.stage = stage;
     }
 
-    public void MultipleMatrix() {
+    public void initMultipleMatrix() {
         observableListOne.addAll(2, 3, 4, 5, 6);
         widthMatrixOne.setItems(observableListOne);
         heightMatrixOne.setItems(observableListOne);
@@ -68,25 +70,18 @@ public class MultipleMatrix {
 
         observableListSign.addAll("+", "-", "*");
         sign.setItems(observableListSign);
+
+        matrixOne = new Matrix(0, 0, paneForOne);
+        matrixTwo = new Matrix(0, 0, paneForTwo);
     }
 
-    public void InitMatrixOne() {
+    public void initMatrixOne() {
         widthOne = Integer.parseInt(widthMatrixOne.getValue().toString());
         heightOne = Integer.parseInt(heightMatrixOne.getValue().toString());
-        matrixOne = new TextField[heightOne][widthOne];
-            for (int i = 0; i < heightOne; i++) {
-                for (int j = 0; j < widthOne; j++) {
-                    matrixOne[i][j] = new TextField();
-                    paneForOne.getChildren().add(matrixOne[i][j]);
-                    matrixOne[i][j].setLayoutX(10 + (j * 55));
-                    matrixOne[i][j].setLayoutY(i * 45);
-                    matrixOne[i][j].setPromptText("0.0");
-                    matrixOne[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white; " +
-                            "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
-                }
-            }
+        matrixOne = new Matrix(widthOne, heightOne, paneForOne);
         heightMatrixTwo.setDisable(false);
         widthMatrixTwo.setDisable(false);
+        throw new NullPointerException("");
 //      switch (valueSign) {
 //            case "+": {
 //                widthMatrixTwo.getSelectionModel().select(Integer.parseInt(widthMatrixOne.getValue().toString()));
@@ -103,7 +98,7 @@ public class MultipleMatrix {
 //        }
     }
 
-    public void InitSign() {
+    public void initSign() {
         valueSign = sign.getValue().toString();
         labelSign = new Label();
         paneForSign.getChildren().add(labelSign);
@@ -115,62 +110,35 @@ public class MultipleMatrix {
                            "-fx-alignment: center" +
                            "");
     }
-    public void InitMatrixTwo() {
+    public void initMatrixTwo() {
         widthTwo = Integer.parseInt(widthMatrixTwo.getValue().toString());
         heightTwo = Integer.parseInt(heightMatrixTwo.getValue().toString());
-        matrixTwo = new TextField[heightTwo][widthTwo];
-            for (int i = 0; i < heightTwo; i++) {
-                for (int j = 0; j < widthTwo; j++) {
-                    matrixTwo[i][j] = new TextField();
-                    paneForTwo.getChildren().add(matrixTwo[i][j]);
-                    matrixTwo[i][j].setLayoutX(10 + (j * 55));
-                    matrixTwo[i][j].setLayoutY(i * 45);
-                    matrixTwo[i][j].setPromptText("0.0");
-                    matrixTwo[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white; " +
-                                             "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; " +
-                                             "");
-                }
-            }
+        matrixTwo = new Matrix(widthTwo, heightTwo, paneForTwo);
+        throw new NullPointerException();
     }
 
     public void widthMatrixOneChange(ActionEvent actionEvent) {
-        for (int i = 0; i < heightOne; i++) {
-            for (int j = 0; j < widthOne; j++) {
-                paneForOne.getChildren().remove(matrixOne[i][j]);
-                matrixOne[i][j] = null;
-            }
-        }
-        InitMatrixOne();
+        matrixOne.removeMatrix(paneForOne);
+        try {initMatrixOne();}
+        catch (NullPointerException e) {}
     }
 
     public void heightMatrixOneChange(ActionEvent actionEvent) {
-        for (int i = 0; i < heightOne; i++) {
-            for (int j = 0; j < widthOne; j++) {
-                paneForOne.getChildren().remove(matrixOne[i][j]);
-                matrixOne[i][j] = null;
-            }
-        }
-        InitMatrixOne();
+        matrixOne.removeMatrix(paneForOne);
+        try {initMatrixOne();}
+        catch (NullPointerException e) {}
     }
 
     public void heightMatrixTwoChange(ActionEvent actionEvent) {
-        for (int i = 0; i < heightTwo; i++) {
-            for (int j = 0; j < widthTwo; j++) {
-                paneForTwo.getChildren().remove(matrixTwo[i][j]);
-                matrixTwo[i][j] = null;
-            }
-        }
-        InitMatrixTwo();
+        matrixTwo.removeMatrix(paneForTwo);
+        try {initMatrixTwo();}
+        catch (NullPointerException e) {}
     }
 
     public void widthMatrixTwoChange(ActionEvent actionEvent) {
-        for (int i = 0; i < heightTwo; i++) {
-            for (int j = 0; j < widthTwo; j++) {
-                paneForTwo.getChildren().remove(matrixTwo[i][j]);
-                matrixTwo[i][j] = null;
-            }
-        }
-        InitMatrixTwo();
+        matrixTwo.removeMatrix(paneForTwo);
+        try {initMatrixTwo();}
+        catch (NullPointerException e) {}
     }
 
     public void signChange(ActionEvent actionEvent) {
@@ -178,7 +146,7 @@ public class MultipleMatrix {
         labelSign = null;
         heightMatrixOne.setDisable(false);
         widthMatrixOne.setDisable(false);
-        InitSign();
+        initSign();
     }
 
     public void goBack(ActionEvent actionEvent) throws Exception {
@@ -194,6 +162,11 @@ public class MultipleMatrix {
     }
 
     public void goForward(ActionEvent actionEvent) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("right",matrixTwo.getList());
+        jsonObject.put("left",matrixOne.getList());
+        jsonObject.put("sign",labelSign.getText());
+        System.out.println(jsonObject.toString());
     }
 
 //    public void observer () {

@@ -26,7 +26,7 @@ public class Controller {
     @FXML
     Button nextButton;
 
-    ToggleGroup sdf = new ToggleGroup();
+    private ToggleGroup sdf = new ToggleGroup();
     private Stage stage;
     private String pressedRadio;
 
@@ -74,7 +74,7 @@ public class Controller {
                 controller.setStage(stage);
                 stage.setTitle("Решение СЛАУ");
                 stage.setScene(scene);
-                controller.Slau();
+                controller.initSlau();
                 break;
             }
             case "multipleMatrix": {
@@ -86,7 +86,7 @@ public class Controller {
                 controller.setStage(stage);
                 stage.setTitle("Умножение матриц");
                 stage.setScene(scene);
-                controller.MultipleMatrix();
+                controller.initMultipleMatrix();
                 break;
             }
             case "multOnNumber": {
@@ -98,6 +98,7 @@ public class Controller {
                 controller.setStage(stage);
                 stage.setTitle("Умножение матрицы на число");
                 stage.setScene(scene);
+                controller.initMultOnNumber();
                 break;
             }
             case "trans": {
@@ -109,6 +110,7 @@ public class Controller {
                 controller.setStage(stage);
                 stage.setTitle("Транспонироване матрицы");
                 stage.setScene(scene);
+                controller.initTrans();
                 break;
             }
         }

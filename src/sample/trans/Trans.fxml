@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #f66123;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.trans.Trans">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #339999;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.trans.Trans">
+   <children>
+      <Label alignment="CENTER" layoutY="18.0" prefHeight="50.0" prefWidth="900.0" text="Транспонирование матрицы" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="31.0" prefHeight="17.0" prefWidth="55.0" text="назад" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="16.0" />
+         </font>
+      </Label>
+      <Pane fx:id="paneForMatrix" layoutX="259.0" layoutY="179.0" prefHeight="266.0" prefWidth="384.0" />
+      <Label alignment="CENTER" layoutX="431.0" layoutY="137.0" prefHeight="29.0" prefWidth="39.0" text="х" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="widthMatrix" layoutX="330.0" layoutY="138.0" onAction="#widthMatrixChange" prefHeight="27.0" prefWidth="101.0" promptText="ширина" style="-fx-background-color: #339999; -fx-mark-color: #339999; -fx-color: #666699; -fx-border-color: white; -fx-border-radius: 2px;" />
+      <Label alignment="CENTER" layoutX="158.0" layoutY="94.0" prefHeight="29.0" prefWidth="584.0" text="Выберете размер матрицы" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="42.0" layoutY="5.0" mnemonicParsing="false" onAction="#goBack" prefHeight="76.0" prefWidth="41.0" rotate="90.0" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: white; -fx-border-radius: 2px; -fx-shape: &quot;M0 0 L0 50 L25 75 L50 50 L50 00 Z&quot;;" textFill="#fcfcfc">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="803.0" layoutY="453.0" mnemonicParsing="false" onAction="#goForward" prefHeight="33.0" prefWidth="83.0" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: white; -fx-border-radius: 2px;" text="Далее" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="heightMatrix" layoutX="470.0" layoutY="138.0" onAction="#heightMatrixChange" prefHeight="27.0" prefWidth="101.0" promptText="высота" style="-fx-background-color: #339999; -fx-mark-color: #339999; -fx-color: #666699; -fx-border-color: white; -fx-border-radius: 2px;" />
+   </children>
 </AnchorPane>

@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
+import sample.Matrix;
 import sample.start.Controller;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +19,10 @@ import java.util.List;
 public class Slau {
     private Stage stage;
     private int selectedCountValue;
-    private TextField[][] matrix;
-    private TextField[] vector;
-    List<Integer> list = new ArrayList<>();
-    ObservableList<Integer> observableList = FXCollections.observableList(list);
+    private Matrix matrix;
+    private Matrix vector;
+    private List<Integer> list = new ArrayList<>();
+    private ObservableList<Integer> observableList = FXCollections.observableList(list);
 
     @FXML
     private ComboBox countValue;
@@ -31,9 +33,11 @@ public class Slau {
     @FXML
     Pane paneForVector;
 
-    public void Slau() {
+    public void initSlau() {
         observableList.addAll(2, 3, 4, 5, 6);
         countValue.setItems(observableList);
+        matrix = new Matrix(0, 0, paneForValue);
+        vector = new Matrix(0,0, paneForVector);
     }
 
     public void setStage(Stage stage) {
@@ -41,30 +45,17 @@ public class Slau {
     }
 
 
-    public void InitMatrix() {
+    public void initMatrix() {
         selectedCountValue = Integer.parseInt(countValue.getValue().toString());
-        matrix = new TextField[selectedCountValue][selectedCountValue];
-        vector = new TextField[selectedCountValue];
-        for (int i = 0; i < selectedCountValue; i++) {
-            for (int j = 0; j < selectedCountValue; j++) {
-                matrix[i][j] = new TextField();
-                paneForValue.getChildren().add(matrix[i][j]);
-                matrix[i][j].setId("value" + i + "_" + j);
-                matrix[i][j].setLayoutX(10 + (j * 55));
-                matrix[i][j].setLayoutY(i * 45);
-                matrix[i][j].setPromptText("0.0");
-                matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white; " +
-                                        "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
-            }
-            vector[i] = new TextField();
-            paneForVector.getChildren().add(vector[i]);
-            vector[i].setLayoutY(i * 45);
-            vector[i].setPromptText("0.0");
-            vector[i].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white;" +
-                    " -fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
-        }
+        matrix = new Matrix(selectedCountValue, selectedCountValue, paneForValue);
+        vector = new Matrix(1,selectedCountValue, paneForVector);
     }
-
+    public void countChange(ActionEvent actionEvent) {
+        matrix.removeMatrix(paneForValue);
+        vector.removeMatrix(paneForVector);
+        try {initMatrix();}
+        catch (NullPointerException e) {}
+    }
     public void goBack(ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../start/sample.fxml"));
@@ -78,17 +69,9 @@ public class Slau {
     }
 
     public void goForward(ActionEvent actionEvent) {
-    }
-
-    public void countChange(ActionEvent actionEvent) {
-        for (int i = 0; i < selectedCountValue; i++) {
-            for (int j = 0; j < selectedCountValue; j++) {
-                paneForValue.getChildren().remove(matrix[i][j]);
-                matrix[i][j] = null;
-            }
-            paneForVector.getChildren().remove(vector[i]);
-            vector[i] = null;
-        }
-       InitMatrix();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("vector",vector.getList());
+        jsonObject.put("matrix",matrix.getList());
+        System.out.println(jsonObject.toString());
     }
 }
