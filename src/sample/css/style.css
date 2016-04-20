@@ -1,0 +1,4 @@
+.btn:hover {
+    -fx-cursor: hand;
+    -fx-scale-x: 2px;
+}

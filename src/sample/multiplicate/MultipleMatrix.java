@@ -7,15 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
+import sample.Client;
 import sample.Matrix;
+import sample.dialog.Dialog;
+import sample.response.Response;
 import sample.start.Controller;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,9 +48,9 @@ public class MultipleMatrix {
     @FXML
     Pane paneForTwo;
     @FXML
-    Pane paneForSign;
-    @FXML
     ComboBox sign;
+    @FXML
+    Button next;
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -73,6 +73,7 @@ public class MultipleMatrix {
 
         matrixOne = new Matrix(0, 0, paneForOne);
         matrixTwo = new Matrix(0, 0, paneForTwo);
+        next.setDisable(true);
     }
 
     public void initMatrixOne() {
@@ -82,38 +83,13 @@ public class MultipleMatrix {
         heightMatrixTwo.setDisable(false);
         widthMatrixTwo.setDisable(false);
         throw new NullPointerException("");
-//      switch (valueSign) {
-//            case "+": {
-//                widthMatrixTwo.getSelectionModel().select(Integer.parseInt(widthMatrixOne.getValue().toString()));
-//                heightMatrixTwo.getSelectionModel().select(Integer.parseInt(heightMatrixOne.getValue().toString()));
-//            }
-//            case "-": {
-//                widthMatrixTwo.getSelectionModel().select(Integer.parseInt(widthMatrixOne.getValue().toString()));
-//                heightMatrixTwo.getSelectionModel().select(Integer.parseInt(heightMatrixOne.getValue().toString()));
-//            }
-//            case "*": {
-//                heightMatrixTwo.getSelectionModel().select(Integer.parseInt(widthMatrixOne.getValue().toString()));
-//                widthMatrixOne.setDisable(false);
-//           }
-//        }
     }
 
-    public void initSign() {
-        valueSign = sign.getValue().toString();
-        labelSign = new Label();
-        paneForSign.getChildren().add(labelSign);
-        labelSign.setLayoutX(0);
-        labelSign.setLayoutY(0);
-        labelSign.setText(valueSign);
-        labelSign.setStyle("-fx-min-width: 30px; -fx-min-height: 10px; -fx-background-color:  #339999;    " +
-                           "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; -fx-font-size: 25; " +
-                           "-fx-alignment: center" +
-                           "");
-    }
     public void initMatrixTwo() {
         widthTwo = Integer.parseInt(widthMatrixTwo.getValue().toString());
         heightTwo = Integer.parseInt(heightMatrixTwo.getValue().toString());
         matrixTwo = new Matrix(widthTwo, heightTwo, paneForTwo);
+        next.setDisable(false);
         throw new NullPointerException();
     }
 
@@ -142,43 +118,60 @@ public class MultipleMatrix {
     }
 
     public void signChange(ActionEvent actionEvent) {
-        paneForSign.getChildren().remove(labelSign);
-        labelSign = null;
         heightMatrixOne.setDisable(false);
         widthMatrixOne.setDisable(false);
-        initSign();
     }
+
+    public String getSign () {
+        String operation = new String();
+        switch (this.sign.getValue().toString()) {
+            case "+": {
+                operation = "add";
+                break;
+            }
+            case "-": {
+                operation = "sub";
+                break;
+            }
+            case "*": {
+                operation = "multiply";
+                break;
+            }
+        }
+
+        return operation;
+    }
+
 
     public void goBack(ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../start/sample.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500);
+        Scene scene = new Scene(root, 480, 480);
         Controller controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("matrixMath");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void goForward(ActionEvent actionEvent) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("right",matrixTwo.getList());
-        jsonObject.put("left",matrixOne.getList());
-        jsonObject.put("sign",labelSign.getText());
-        System.out.println(jsonObject.toString());
+    public void goForward(ActionEvent actionEvent) throws Exception{
+        if (matrixOne.checkValue() == 0 && matrixTwo.checkValue() == 0) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("left", matrixOne.getList());
+            jsonObject.put("right", matrixTwo.getList());
+            System.out.println(jsonObject.toString());
+            System.out.println(getSign());
+            Client client = new Client();
+            Response response = new Response();
+            response.showResponse(actionEvent, client.initConnection(jsonObject, getSign()), Integer.parseInt(widthMatrixOne.getValue().toString()), Integer.parseInt(heightMatrixOne.getValue().toString()));
+        }
+        else {
+            Dialog dialog = new Dialog();
+            Label label = new Label();
+            label.setText("Вы не заполнили одно или несколько полей!");
+            dialog.showDialog(stage.getOwner(), label);
+        }
     }
-
-//    public void observer () {
-//        switch (valueSign) {
-//            case "+": {
-//                widthMatrixTwo.getSelectionModel().select(Integer.parseInt(widthMatrixOne.getValue().toString()));
-//                heightMatrixTwo.getSelectionModel().select(Integer.parseInt(heightMatrixOne.getValue().toString()));
-//            }
-//            case "-": {
-//            }
-//            case "*": {
-//           }
-//        }
-//    }
 }

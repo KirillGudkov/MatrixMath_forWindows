@@ -1,11 +1,12 @@
 package sample;
 
-import javafx.scene.control.TextField;
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
-import org.json.simple.JSONArray;
+import javafx.util.Duration;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by sillybird on 13.04.2016.
@@ -17,39 +18,75 @@ import java.util.List;
 public class Matrix {
     private int height;
     private int width;
-    private TextField[][] matrix;
+
+    private RestrictiveTextField[][] matrix;
+    private ParallelTransition parallelTransition;
+    private int scale;
 
     public Matrix (int width, int height, Pane pane) {
         this.width = width;
         this.height = height;
-        matrix = new TextField[this.height][this.width];
+
+        matrix = new RestrictiveTextField[this.height][this.width];
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
-                this.matrix[i][j] = new TextField();
-                pane.getChildren().add(this.matrix[i][j]);
-                this.matrix[i][j].setLayoutX(10 + (j * 55));
-                this.matrix[i][j].setLayoutY(i * 45);
-                this.matrix[i][j].setPromptText("0.0");
-                this.matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #339999; -fx-border-color: white; " +
-                        "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
+                matrix[i][j] = new RestrictiveTextField();
+                matrix[i][j].setMaxLength(4);
+                matrix[i][j].setRestrict("[0-9.]");
+                matrix[i][j].setLayoutX(10 + (j * 55));
+                matrix[i][j].setLayoutY(i * 45);
+                matrix[i][j].setPromptText("0.0");
+                matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #6699FF; -fx-border-color: white; " +
+                                            "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
+            }
+        }
+        for (int j = 0; j < this.width; j++) {
+            for (int i = 0; i < this.height; i++){
+                Random random = new Random(System.currentTimeMillis());
+                scale = random.nextInt((2001)-700);
+                pane.getChildren().add(matrix[i][j]);
+                FadeTransition fadeTransition = new FadeTransition(Duration.millis(scale), matrix[i][j]);
+                fadeTransition.setFromValue(0);
+                fadeTransition.setToValue(1);
+                TranslateTransition translateTransition = new TranslateTransition(Duration.millis(scale), matrix[i][j]);
+                translateTransition.setFromY(250);
+                translateTransition.setToY(0);
+                parallelTransition = new ParallelTransition();
+                parallelTransition.getChildren().addAll(fadeTransition,translateTransition);
+                parallelTransition.play();
             }
         }
     }
+
+
+
     public void removeMatrix (Pane pane) {
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
-                pane.getChildren().remove(this.matrix[i][j]);
+                pane.getChildren().remove(matrix[i][j]);
                 this.matrix[i][j] = null;
             }
         }
     }
 
-    public List getList() {
-        List<List> I = new ArrayList<>();
-        List<Integer> J = new ArrayList<>();
+    public int checkValue () {
+        int flag = 0;
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
-                J.add(Integer.parseInt(matrix[i][j].getText()));
+                if (matrix[i][j].getText().isEmpty()) {
+                    flag = 1;
+                }
+            }
+        }
+        return flag;
+    }
+
+    public List getList() {
+        List<List> I = new ArrayList<>();
+        List<Double> J = new ArrayList<>();
+        for (int i = 0; i < this.height; i++) {
+            for (int j = 0; j < this.width; j++) {
+                J.add(Double.parseDouble(matrix[i][j].getText()));
             }
             I.add(J);
             J = new ArrayList<>();
