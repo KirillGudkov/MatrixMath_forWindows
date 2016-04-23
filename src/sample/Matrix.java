@@ -36,7 +36,7 @@ public class Matrix {
                 matrix[i][j].setLayoutX(10 + (j * 55));
                 matrix[i][j].setLayoutY(i * 45);
                 matrix[i][j].setPromptText("0.0");
-                matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #6699FF; -fx-border-color: white; " +
+                matrix[i][j].setStyle("-fx-max-width: 50px; -fx-background-color:  #3399FF; -fx-border-color: rgba(255, 255, 255, 0.6); " +
                                             "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
             }
         }

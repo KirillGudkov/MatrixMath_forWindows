@@ -19,6 +19,7 @@ import sample.dialog.Dialog;
 import sample.response.Response;
 import sample.start.Controller;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,10 +79,12 @@ public class Invert {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../start/sample.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 480, 480);
+        Scene scene = new Scene(root, 400, 480);
         Controller controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("matrixMath");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-200);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-240);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -100,7 +103,7 @@ public class Invert {
             Dialog dialog = new Dialog();
             Label label = new Label();
             label.setText("Вы не заполнили одно или несколько полей!");
-            dialog.showDialog(stage.getOwner(), label);
+            dialog.showDialog(stage, label);
         }
     }
 }

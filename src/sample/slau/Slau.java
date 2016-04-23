@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -17,6 +19,7 @@ import sample.dialog.Dialog;
 import sample.response.Response;
 import sample.start.Controller;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +42,10 @@ public class Slau {
     @FXML
     Button next;
 
+    /**
+     * я бы конечно назвал этот метод initialize(), но чёт не хочу :)
+     * закладываем в комбобокс варианты размеров матрицы
+     */
     public void initSlau() {
         observableList.addAll(2, 3, 4, 5, 6);
         countValue.setItems(observableList);
@@ -68,17 +75,19 @@ public class Slau {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../start/sample.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 480, 480);
+        Scene scene = new Scene(root, 400, 480);
         Controller controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("matrixMath");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-200);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-240);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 
     public void goForward(ActionEvent actionEvent) throws Exception{
-        if (matrix.checkValue() == 0 && vector.checkValue() ==0) {
+        if (matrix.checkValue() == 0 && vector.checkValue() == 0) {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("matrix", matrix.getList());
             jsonObject.put("vector", vector.getList());
@@ -91,7 +100,7 @@ public class Slau {
             Dialog dialog = new Dialog();
             Label label = new Label();
             label.setText("Вы не заполнили одно или несколько полей!");
-            dialog.showDialog(stage.getOwner(), label);
+            dialog.showDialog(stage, label);
         }
     }
 }

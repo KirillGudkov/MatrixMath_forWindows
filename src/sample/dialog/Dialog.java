@@ -17,6 +17,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.security.acl.Owner;
+
 /**
  * Created by sillybird on 17.04.2016.
  * Диалоговое окно, вызываемое любыми событиями происходящими на этапе вычисления
@@ -44,6 +46,7 @@ public class Dialog {
         label.setStyle("-fx-min-width: 380px; -fx-max-width: 380px; -fx-min-height: 90px; -fx-background-color:  rgba(0, 0, 0, 0); -fx-wrap-text: true; -fx-font-family: Yu Gothic UI Light; -fx-font-size: 14px; -fx-text-fill: white;");
         label.setWrapText(true);
         paneForError.getChildren().add(label);
+        System.out.println(owner);
         stage.show();
     }
 

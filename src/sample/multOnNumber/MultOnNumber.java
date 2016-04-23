@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
@@ -20,6 +22,7 @@ import sample.dialog.Dialog;
 import sample.response.Response;
 import sample.start.Controller;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +90,8 @@ public class MultOnNumber {
         Controller controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("matrixMath");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-240);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-240);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -108,7 +113,7 @@ public class MultOnNumber {
             Dialog dialog = new Dialog();
             Label label = new Label();
             label.setText("Вы не заполнили одно или несколько полей!");
-            dialog.showDialog(stage.getOwner(), label);
+            dialog.showDialog(stage, label);
         }
     }
 }

@@ -98,7 +98,7 @@ public class Trans {
             Dialog dialog = new Dialog();
             Label label = new Label();
             label.setText("Вы не заполнили одно или несколько полей!");
-            dialog.showDialog(stage.getOwner(), label);
+            dialog.showDialog(stage, label);
         }
     }
 

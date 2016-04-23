@@ -15,6 +15,8 @@ import sample.multiplicate.MultipleMatrix;
 import sample.slau.Slau;
 import sample.trans.Trans;
 
+import java.awt.*;
+
 public class Controller {
     @FXML
     Button slau;
@@ -35,6 +37,10 @@ public class Controller {
         this.stage = primaryStage;
     }
 
+    public void initialize () {
+        multiplicate.setDisable(true);
+    }
+
     public void slau(ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../slau/Slau.fxml"));
@@ -43,6 +49,8 @@ public class Controller {
         Slau controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("Решение СЛАУ");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
         controller.initSlau();
     }
@@ -55,6 +63,8 @@ public class Controller {
         MultOnNumber controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("Умножение матрицы на число");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
         controller.initMultOnNumber();
     }
@@ -67,6 +77,8 @@ public class Controller {
         MultipleMatrix controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("Бинарные операции");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
         controller.initMultipleMatrix();
     }
@@ -79,6 +91,8 @@ public class Controller {
         Trans controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("Транспонирование матрицы");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
         controller.initTrans();
     }
@@ -91,6 +105,8 @@ public class Controller {
         Invert controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("Нахождение обратной матрицы");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
         controller.initInvert();
     }
@@ -103,6 +119,8 @@ public class Controller {
         Det controller = fxmlLoader.getController();
         controller.setStage(stage);
         stage.setTitle("Нахождение детерминанта");
+        stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
+        stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
         controller.initDet();
     }
