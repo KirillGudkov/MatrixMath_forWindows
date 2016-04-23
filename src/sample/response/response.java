@@ -57,10 +57,33 @@ public class Response {
         stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         parseJson(htmlResponse, width, height, actionEvent);
     }
+
+
+    /**
+     *
+     * @param actionEvent
+     * закрытие окна по нажатию кнопки "ок"
+     */
     public void ok(ActionEvent actionEvent) {
         Stage stage = (Stage) ok.getScene().getWindow();
         stage.close();
     }
+
+    /**--------------------------------------
+     * PAY ATTENTION!
+     * BE CAREFUL!
+     ---------------------------------------*/
+
+
+    /**
+     *Этот метод сплошной говнокод, впрочем как и весь код в этом проекте :)
+     *в общем алгоритм таков:
+     * - парсим JSON
+     * - за тем проверям существуют ли поля статус код и статус месседж
+     * - далее в зависимости от кода выводим в UI ошибку, либо же смотрим далее
+     * - а далее проверяем что лежит в ключе "result" елси массив то массив если объект то объект
+     * - ну и опять же суём это все в UI
+     **/
     public void parseJson (String htmlResponse, int width, int height, ActionEvent actionEvent) throws Exception {
         JSONParser parser = new JSONParser();
         Object object = parser.parse(htmlResponse);
@@ -72,43 +95,55 @@ public class Response {
             System.out.println("Код : " + code);
             System.out.println("Сообщение от сервера: " + message);
 
-            if (code.equalsIgnoreCase("200")) {
-                    result = jsonObject.get("result").toString();
-                    System.out.println("Результат вычислений: " + result);
-                    JSONArray arr = (JSONArray) jsonObject.get("result");
+                if (code.equalsIgnoreCase("200")) {
+                        result = jsonObject.get("result").toString();
+                        System.out.println("Результат вычислений: " + result);
 
-                    double[][] arrayResponse = new double[arr.size()][arr.size()];
-                    for (int i = 0; i < width; i++) {
-                        for (int j = 0; j < height; j++) {
-                            arrayResponse[i][j] = Double.parseDouble(((JSONArray) arr.get(i)).get(j).toString());
+                                if ((jsonObject.get("result")).getClass().toString().equalsIgnoreCase("class org.json.simple.JSONArray")) {
+                                    JSONArray arr = (JSONArray)jsonObject.get("result");
+
+                                double[][] arrayResponse = new double[arr.size()][arr.size()];
+                                for (int i = 0; i < width; i++) {
+                                    for (int j = 0; j < height; j++) {
+                                        arrayResponse[i][j] = Double.parseDouble(((JSONArray) arr.get(i)).get(j).toString());
+                                    }
+                                }
+                                text = new Label[width][height];
+                                for (int i = 0; i < width; i++) {
+                                    for (int j = 0; j < height; j++) {
+                                        text[i][j] = new Label();
+                                        text[i][j].setAlignment(Pos.TOP_RIGHT);
+                                        text[i][j].setText(String.valueOf(arrayResponse[i][j]));
+                                        text[i][j].setLayoutX(10 + (j * 55));
+                                        text[i][j].setLayoutY(i * 45);
+                                        text[i][j].setStyle("-fx-min-width: 50px; -fx-min-height: 25px;-fx-alignment: center; -fx-background-color:  #3399FF; -fx-border-color: rgba(255, 255, 255, 0.6); " +
+                                                "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
+                                        Random random = new Random(System.currentTimeMillis());
+                                        scale = random.nextInt((2001) - 700);
+                                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(scale), text[i][j]);
+                                        fadeTransition.setFromValue(0);
+                                        fadeTransition.setToValue(1);
+                                        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(scale), text[i][j]);
+                                        translateTransition.setFromY(250);
+                                        translateTransition.setToY(0);
+                                        parallelTransition = new ParallelTransition();
+                                        parallelTransition.getChildren().addAll(fadeTransition, translateTransition);
+                                        parallelTransition.play();
+                                        pane.getChildren().add(text[i][j]);
+                                    }
+                                }
+                                stage.show();
+                            }
+                            else {
+                                    Label lab = new Label();
+                                    lab.setStyle("-fx-min-width: 50px; -fx-min-height: 25px;-fx-alignment: center; -fx-background-color:  #3399FF; -fx-border-color: rgba(255, 255, 255, 0.6); " +
+                                            "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
+                                    lab.setText(jsonObject.get("result").toString());
+                                    pane.getChildren().add(lab);
+                                    lab.setAlignment(Pos.CENTER);
+                                    stage.show();
+                                }
                         }
-                    }
-                    text = new Label[width][height];
-                    for (int i = 0; i < width; i++) {
-                        for (int j = 0; j < height; j++) {
-                            text[i][j] = new Label();
-                            text[i][j].setAlignment(Pos.TOP_RIGHT);
-                            text[i][j].setText(String.valueOf(arrayResponse[i][j]));
-                            text[i][j].setLayoutX(10 + (j * 55));
-                            text[i][j].setLayoutY(i * 45);
-                            text[i][j].setStyle("-fx-min-width: 50px; -fx-min-height: 25px;-fx-alignment: center; -fx-background-color:  #6699FF; -fx-border-color: white; " +
-                                    "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
-                            Random random = new Random(System.currentTimeMillis());
-                            scale = random.nextInt((2001) - 700);
-                            FadeTransition fadeTransition = new FadeTransition(Duration.millis(scale), text[i][j]);
-                            fadeTransition.setFromValue(0);
-                            fadeTransition.setToValue(1);
-                            TranslateTransition translateTransition = new TranslateTransition(Duration.millis(scale), text[i][j]);
-                            translateTransition.setFromY(250);
-                            translateTransition.setToY(0);
-                            parallelTransition = new ParallelTransition();
-                            parallelTransition.getChildren().addAll(fadeTransition, translateTransition);
-                            parallelTransition.play();
-                            pane.getChildren().add(text[i][j]);
-                        }
-                    }
-                    stage.show();
-                }
 
                else {
                     Dialog dialog = new Dialog();
