@@ -1,5 +1,6 @@
 package sample.det;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
@@ -20,6 +22,7 @@ import sample.response.Response;
 import sample.start.Controller;
 
 import java.awt.*;
+import java.awt.Image;
 import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,7 @@ import java.util.List;
 public class Det {
     private Stage stage;
     private Matrix matrix;
+    private Pane forLoad = new Pane();
     private int width;
     private int height;
     private List<Integer> list = new ArrayList<>();
@@ -43,6 +47,8 @@ public class Det {
     Pane paneForMatrix;
     @FXML
     Button next;
+    @FXML
+    Pane anchor;
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -54,6 +60,20 @@ public class Det {
         heightMatrix.setItems(observableList);
         next.setDisable(true);
         matrix = new Matrix(0, 0, paneForMatrix);
+    }
+
+    public void showLoading () {
+        javafx.scene.image.Image image = new javafx.scene.image.Image("file:resources/image/anim.gif");
+        ImageView imageView = new ImageView(image);
+        imageView.setX(360);
+        imageView.setY(180);
+        forLoad.setStyle("-fx-background-color: #3399FF; -fx-min-width: 900px; -fx-min-height: 500px;");
+        forLoad.getChildren().add(imageView);
+        Platform.runLater(()-> {anchor.getChildren().add(forLoad);});
+    }
+
+    public void hideLoading () {
+        Platform.runLater(()->{anchor.getChildren().remove(forLoad);});
     }
 
     public void initMatrix () {
@@ -93,12 +113,36 @@ public class Det {
 
     public void goForward(ActionEvent actionEvent) throws Exception {
         if (matrix.checkValue() == 0) {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("matrix", matrix.getList());
-            System.out.println(jsonObject.toString());
-            Client client = new Client();
-            Response response = new Response();
-            response.showResponse(actionEvent, client.initConnection(jsonObject, "determinant"), Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
+            Thread resp = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("matrix", matrix.getList());
+                        System.out.println(jsonObject.toString());
+                        Client client = new Client();
+                        Response response = new Response();
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, "determinant",stage), Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            Thread load = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        showLoading();
+                        resp.start();
+                        resp.join();
+                        hideLoading();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            load.start();
         }
         else {
             Dialog dialog = new Dialog();

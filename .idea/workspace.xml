@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScreenShot.PNG" afterPath="$PROJECT_DIR$/ScreenShot.PNG" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScreenShotBinary.PNG" afterPath="$PROJECT_DIR$/ScreenShotBinary.PNG" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screen.PNG" afterPath="$PROJECT_DIR$/screen.PNG" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="пофиксил баги с месседжами об ошибках, сделал их модальными окнами, изменил главное меню, добавил анимацию на кнопки">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/load.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/image/anim.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Matrix.java" afterPath="$PROJECT_DIR$/src/sample/Matrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/css/style.css" afterPath="$PROJECT_DIR$/src/sample/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Client.java" afterPath="$PROJECT_DIR$/src/sample/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/det/Det.java" afterPath="$PROJECT_DIR$/src/sample/det/Det.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/det/det.fxml" afterPath="$PROJECT_DIR$/src/sample/det/det.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/dialog/Dialog.java" afterPath="$PROJECT_DIR$/src/sample/dialog/Dialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/dialog/dialog.fxml" afterPath="$PROJECT_DIR$/src/sample/dialog/dialog.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/invert/Invert.java" afterPath="$PROJECT_DIR$/src/sample/invert/Invert.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/invert/invert.fxml" afterPath="$PROJECT_DIR$/src/sample/invert/invert.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.fxml" afterPath="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.java" afterPath="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.fxml" afterPath="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.java" afterPath="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/response/response.fxml" afterPath="$PROJECT_DIR$/src/sample/response/response.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/response/response.java" afterPath="$PROJECT_DIR$/src/sample/response/response.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/slau/Slau.fxml" afterPath="$PROJECT_DIR$/src/sample/slau/Slau.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/slau/Slau.java" afterPath="$PROJECT_DIR$/src/sample/slau/Slau.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/start/Controller.java" afterPath="$PROJECT_DIR$/src/sample/start/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/start/Main.java" afterPath="$PROJECT_DIR$/src/sample/start/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/start/sample.fxml" afterPath="$PROJECT_DIR$/src/sample/start/sample.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/trans/Trans.fxml" afterPath="$PROJECT_DIR$/src/sample/trans/Trans.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/trans/Trans.java" afterPath="$PROJECT_DIR$/src/sample/trans/Trans.java" />
     </list>
@@ -85,31 +81,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Dialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/dialog/Dialog.java">
+      <file leaf-file-name="Trans.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/trans/Trans.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="301">
+              <caret line="105" column="84" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Det.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/det/Det.java">
+      <file leaf-file-name="Slau.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/slau/Slau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Response.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/response/Response.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="54" />
+            <state relative-caret-position="196">
+              <caret line="99" column="84" selection-start-line="98" selection-start-column="8" selection-end-line="99" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -166,32 +154,33 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/sample/server.java" />
         <option value="$PROJECT_DIR$/src/sample/client.java" />
-        <option value="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.fxml" />
         <option value="$PROJECT_DIR$/src/sample/MyTextField.java" />
         <option value="$PROJECT_DIR$/src/sample/RestrictiveTextField.java" />
-        <option value="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/trans/Trans.fxml" />
         <option value="$PROJECT_DIR$/src/sample/response/response.java" />
         <option value="$PROJECT_DIR$/src/sample/response/response.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Client.java" />
         <option value="$PROJECT_DIR$/src/sample/start/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/start/Wind.java" />
-        <option value="$PROJECT_DIR$/src/sample/invert/invert.fxml" />
         <option value="$PROJECT_DIR$/src/sample/start/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Matrix.java" />
         <option value="$PROJECT_DIR$/src/sample/css/style.css" />
-        <option value="$PROJECT_DIR$/src/sample/det/det.fxml" />
         <option value="$PROJECT_DIR$/src/sample/dialog/dialog.fxml" />
         <option value="$PROJECT_DIR$/src/sample/slau/Slau.fxml" />
         <option value="$PROJECT_DIR$/src/sample/start/Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/dialog/Dialog.java" />
-        <option value="$PROJECT_DIR$/src/sample/det/Det.java" />
+        <option value="$PROJECT_DIR$/src/sample/trans/Trans.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/det/det.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/invert/invert.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.fxml" />
         <option value="$PROJECT_DIR$/src/sample/slau/Slau.java" />
-        <option value="$PROJECT_DIR$/src/sample/trans/Trans.java" />
         <option value="$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.java" />
-        <option value="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.java" />
+        <option value="$PROJECT_DIR$/src/sample/det/Det.java" />
         <option value="$PROJECT_DIR$/src/sample/invert/Invert.java" />
+        <option value="$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.java" />
+        <option value="$PROJECT_DIR$/src/sample/dialog/Dialog.java" />
+        <option value="$PROJECT_DIR$/src/sample/Client.java" />
         <option value="$PROJECT_DIR$/src/sample/response/Response.java" />
+        <option value="$PROJECT_DIR$/src/sample/trans/Trans.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -315,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="response" />
+              <option name="myItemId" value="trans" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -337,7 +326,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dialog" />
+              <option name="myItemId" value="slau" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -359,7 +348,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="det" />
+              <option name="myItemId" value="multiplicate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,15 +362,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="image" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -896,7 +881,7 @@
       <workItem from="1461336555716" duration="3533000" />
       <workItem from="1461371598182" duration="3594000" />
       <workItem from="1461389843619" duration="7154000" />
-      <workItem from="1461397967881" duration="2193000" />
+      <workItem from="1461397967881" duration="25099000" />
     </task>
     <task id="LOCAL-00001" summary="i change size window">
       <created>1460043306064</created>
@@ -954,11 +939,25 @@
       <option name="project" value="LOCAL" />
       <updated>1461168739355</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="пофиксил баги с месседжами об ошибках, сделал их модальными окнами, изменил главное меню, добавил анимацию на кнопки">
+      <created>1461400275382</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1461400275382</updated>
+    </task>
+    <task id="LOCAL-00010" summary="пофиксил баги с месседжами об ошибках, сделал их модальными окнами, изменил главное меню, добавил анимацию на кнопки">
+      <created>1461400341161</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1461400341161</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237002000" />
+    <option name="totallyTimeSpent" value="259908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -966,23 +965,23 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15062112" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13091482" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16770187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16719243" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17823344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1214511" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18228404" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16983895" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30745342" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30599368" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1016,7 +1015,8 @@
     <MESSAGE value="add opportunity make binary operation and change color scheme." />
     <MESSAGE value="add opportunity make unary operation, add creating JSON for every operation" />
     <MESSAGE value="Добавил обработку ошибок, и натроил диалоги с пользователем, правда в одностороннем порядке) распарсил JSON с ответом сервера и добавил вывод его в модальное окно, поменял дизайн главного окна, закинул иконочки приложения ну и там по мелочи" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил обработку ошибок, и натроил диалоги с пользователем, правда в одностороннем порядке) распарсил JSON с ответом сервера и добавил вывод его в модальное окно, поменял дизайн главного окна, закинул иконочки приложения ну и там по мелочи" />
+    <MESSAGE value="пофиксил баги с месседжами об ошибках, сделал их модальными окнами, изменил главное меню, добавил анимацию на кнопки" />
+    <option name="LAST_COMMIT_MESSAGE" value="пофиксил баги с месседжами об ошибках, сделал их модальными окнами, изменил главное меню, добавил анимацию на кнопки" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1029,13 +1029,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/start/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/start/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1140,16 +1133,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/server.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_31/javafx-src.zip!/javafx/scene/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1172,27 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/trans/Trans.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_31/javafx-src.zip!/com/sun/javafx/event/EventHandlerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1211,16 +1173,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/start/Wind.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/invert/invert.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="274" selection-start-line="8" selection-start-column="274" selection-end-line="8" selection-end-column="274" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_31/javafx-src.zip!/javafx/scene/control/Button.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -1235,13 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ScreenShot.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1250,13 +1195,6 @@
     <entry file="file://$PROJECT_DIR$/screen.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/start/sample.fxml">
@@ -1278,35 +1216,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/start/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/det/det.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/dialog/dialog.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1318,10 +1227,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/slau/Slau.fxml">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_31/src.zip!/java/lang/Runnable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="292" selection-start-line="7" selection-start-column="260" selection-end-line="7" selection-end-column="292" />
+        <state relative-caret-position="432">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/trans/Trans.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1331,73 +1256,163 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/start/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
+        <state relative-caret-position="1003">
           <caret line="99" column="62" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/slau/Slau.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/det/det.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/start/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="77" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/trans/Trans.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/invert/invert.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/slau/Slau.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="16" selection-start-line="7" selection-start-column="260" selection-end-line="7" selection-end-column="292" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/multOnNumber/MultOnNumber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="179" column="35" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/invert/Invert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="105" column="35" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dialog/Dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="174">
+          <caret line="133" column="109" selection-start-line="133" selection-start-column="109" selection-end-line="133" selection-end-column="109" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/det/Det.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
+        <state relative-caret-position="174">
+          <caret line="124" column="112" selection-start-line="124" selection-start-column="112" selection-end-line="124" selection-end-column="112" />
+          <folding>
+            <element signature="e#2127#2128#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/invert/Invert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="122" column="108" selection-start-line="122" selection-start-column="108" selection-end-line="122" selection-end-column="108" />
+          <folding>
+            <element signature="e#1830#1831#0" expanded="true" />
+            <element signature="e#1908#1909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/multiplicate/MultipleMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="197" column="109" selection-start-line="197" selection-start-column="109" selection-end-line="197" selection-end-column="109" />
+          <folding>
+            <element signature="e#2454#2455#0" expanded="true" />
+            <element signature="e#2532#2533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/dialog/Dialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/response/Response.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="54" />
+        <state relative-caret-position="0">
+          <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/slau/Slau.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="99" column="84" selection-start-line="98" selection-start-column="8" selection-end-line="99" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/trans/Trans.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="105" column="84" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

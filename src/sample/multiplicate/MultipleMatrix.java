@@ -1,5 +1,6 @@
 package sample.multiplicate;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
@@ -25,6 +28,7 @@ import java.util.List;
 
 public class MultipleMatrix {
     private Stage stage;
+    private Pane forLoad = new Pane();
     private Matrix matrixOne;
     private Matrix matrixTwo;
     private Label labelSign;
@@ -55,8 +59,24 @@ public class MultipleMatrix {
     ComboBox sign;
     @FXML
     Button next;
+    @FXML
+    AnchorPane anchor;
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    public void showLoading () {
+        javafx.scene.image.Image image = new javafx.scene.image.Image("file:resources/image/anim.gif");
+        ImageView imageView = new ImageView(image);
+        imageView.setX(360);
+        imageView.setY(180);
+        forLoad.setStyle("-fx-background-color: #3399FF; -fx-min-width: 900px; -fx-min-height: 500px;");
+        forLoad.getChildren().add(imageView);
+        Platform.runLater(()-> {anchor.getChildren().add(forLoad);});
+    }
+
+    public void hideLoading () {
+        Platform.runLater(()->{anchor.getChildren().remove(forLoad);});
     }
 
     public void initMultipleMatrix() {
@@ -164,14 +184,38 @@ public class MultipleMatrix {
 
     public void goForward(ActionEvent actionEvent) throws Exception{
         if (matrixOne.checkValue() == 0 && matrixTwo.checkValue() == 0) {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("left", matrixOne.getList());
-            jsonObject.put("right", matrixTwo.getList());
-            System.out.println(jsonObject.toString());
-            System.out.println(getSign());
-            Client client = new Client();
-            Response response = new Response();
-            response.showResponse(actionEvent, client.initConnection(jsonObject, getSign()), Integer.parseInt(widthMatrixOne.getValue().toString()), Integer.parseInt(heightMatrixOne.getValue().toString()));
+            Thread resp = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("left", matrixOne.getList());
+                        jsonObject.put("right", matrixTwo.getList());
+                        System.out.println(jsonObject.toString());
+                        System.out.println(getSign());
+                        Client client = new Client();
+                        Response response = new Response();
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, getSign(), stage), Integer.parseInt(widthMatrixOne.getValue().toString()), Integer.parseInt(heightMatrixOne.getValue().toString()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            Thread load = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        showLoading();
+                        resp.start();
+                        resp.join();
+                        hideLoading();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            load.start();
         }
         else {
             Dialog dialog = new Dialog();

@@ -1,5 +1,6 @@
 package sample.multOnNumber;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
@@ -28,6 +31,7 @@ import java.util.List;
 
 public class MultOnNumber {
     private Stage stage;
+    private Pane forLoad = new Pane();
     private int width;
     private int height;
     private Matrix matrix;
@@ -46,9 +50,25 @@ public class MultOnNumber {
     RestrictiveTextField factor;
     @FXML
     Button next;
+    @FXML
+    AnchorPane anchor;
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    public void showLoading () {
+        javafx.scene.image.Image image = new javafx.scene.image.Image("file:resources/image/anim.gif");
+        ImageView imageView = new ImageView(image);
+        imageView.setX(360);
+        imageView.setY(180);
+        forLoad.setStyle("-fx-background-color: #3399FF; -fx-min-width: 900px; -fx-min-height: 500px;");
+        forLoad.getChildren().add(imageView);
+        Platform.runLater(()-> {anchor.getChildren().add(forLoad);});
+    }
+
+    public void hideLoading () {
+        Platform.runLater(()->{anchor.getChildren().remove(forLoad);});
     }
 
     public void initMultOnNumber () {
@@ -99,15 +119,39 @@ public class MultOnNumber {
 
     public void goForward(ActionEvent actionEvent) throws Exception{
         if (matrix.checkValue() == 0 && !factor.getText().isEmpty()) {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray vector = new JSONArray();
-            vector.add(Double.parseDouble(factor.getText()));
-            jsonObject.put("right", vector);
-            jsonObject.put("left", matrix.getList());
-            System.out.println(jsonObject.toString());
-            Client client = new Client();
-            Response response = new Response();
-            response.showResponse(actionEvent, client.initConnection(jsonObject, "multiply"), Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
+            Thread resp = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        JSONArray vector = new JSONArray();
+                        vector.add(Double.parseDouble(factor.getText()));
+                        jsonObject.put("right", vector);
+                        jsonObject.put("left", matrix.getList());
+                        System.out.println(jsonObject.toString());
+                        Client client = new Client();
+                        Response response = new Response();
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, "multiply",stage), Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            Thread load = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        showLoading();
+                        resp.start();
+                        resp.join();
+                        hideLoading();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            load.start();
         }
         else {
             Dialog dialog = new Dialog();

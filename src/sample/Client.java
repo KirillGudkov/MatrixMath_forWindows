@@ -1,6 +1,11 @@
 package sample;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import org.json.simple.JSONObject;
+import sample.dialog.Dialog;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,7 +19,7 @@ import java.net.URL;
 
 public class Client {
     private String html;
-    public String initConnection (JSONObject json, String operation) throws Exception {
+    public String initConnection (JSONObject json, String operation, Stage stage) throws Exception {
         HttpURLConnection connection = (HttpURLConnection)new URL("http://dota2begin.tk:80/server/api/" + operation).openConnection();
         connection.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded");
         connection.setRequestMethod("POST");
@@ -26,9 +31,17 @@ public class Client {
         out.close();
 
 //читаем то, что отдал нам сервер
+            try {
+                html = readStreamToString(connection.getInputStream(), "utf-8");
+                System.out.println(html);
+            }
+            catch (IOException e) {
+                Dialog dialog = new Dialog();
+                Label label = new Label();
+                label.setText("Server fatal error!");
+                dialog.showDialog(stage, label);
+            }
 
-            html = readStreamToString(connection.getInputStream(), "utf-8");
-            System.out.println(html);
 
         return html;
     }

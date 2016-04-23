@@ -7,12 +7,12 @@
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #3399FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.slau.Slau">
    <children>
-      <Label layoutX="41.0" layoutY="20.0" prefHeight="29.0" prefWidth="76.0" text="Назад" textFill="WHITE">
+      <Label layoutX="37.0" layoutY="15.0" prefHeight="29.0" prefWidth="76.0" text="Назад" textFill="WHITE">
          <font>
-            <Font name="Yu Gothic UI Light" size="16.0" />
+            <Font name="Yu Gothic UI Light" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="12.0" prefHeight="43.0" prefWidth="900.0" text="Решение системы линейных алгебраических уравнений" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="12.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="13.0" prefHeight="43.0" prefWidth="900.0" text="Решение системы линейных алгебраических уравнений" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="13.0">
          <font>
             <Font name="Yu Gothic UI Light" size="26.0" />
          </font>
@@ -22,7 +22,7 @@
             <Font name="Yu Gothic UI Light" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="ButtonBack" layoutX="32.0" layoutY="-4.0" mnemonicParsing="false" onAction="#goBack" prefHeight="76.0" prefWidth="41.0" rotate="90.5" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: white; -fx-border-radius: 2px; -fx-shape: &quot;M0 0 L0 50 L25 75 L50 50 L50 00 Z&quot;;" textFill="#fcfcfc">
+      <Button fx:id="ButtonBack" layoutX="37.0" layoutY="-9.0" mnemonicParsing="false" onAction="#goBack" prefHeight="76.0" prefWidth="31.0" rotate="90.5" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px; -fx-shape: &quot;M0 0 L0 55 L25 75 L50 55 L50 00 Z&quot;;" textFill="#fcfcfc">
          <font>
             <Font name="Yu Gothic UI Light" size="15.0" />
          </font>

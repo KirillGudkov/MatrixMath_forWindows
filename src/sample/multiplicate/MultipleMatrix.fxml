@@ -6,16 +6,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #3399FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.multiplicate.MultipleMatrix">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #3399FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.multiplicate.MultipleMatrix">
    <children>
+      <Label fx:id="back" layoutX="31.0" layoutY="18.0" prefHeight="17.0" prefWidth="55.0" text="назад" textFill="WHITE" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="16.0" />
+         </font>
+      </Label>
       <Label alignment="CENTER" layoutX="8.0" layoutY="5.0" prefHeight="50.0" prefWidth="900.0" text="Бинарные операции над матрицами" textFill="WHITE" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="5.0">
          <font>
             <Font name="Yu Gothic UI Light" size="34.0" />
-         </font>
-      </Label>
-      <Label fx:id="back" layoutX="41.0" layoutY="18.0" prefHeight="17.0" prefWidth="55.0" text="назад" textFill="WHITE" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="18.0">
-         <font>
-            <Font name="Yu Gothic UI Light" size="16.0" />
          </font>
       </Label>
       <ComboBox fx:id="widthMatrixOne" layoutX="165.0" layoutY="124.0" onAction="#widthMatrixOneChange" prefHeight="27.0" prefWidth="101.0" promptText="ширина" style="-fx-background-color: #3399FF; -fx-mark-color: #ffffff; -fx-color: #666699; -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px;" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="124.0" />
@@ -36,7 +36,7 @@
             <Font name="Yu Gothic UI Light" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="ButtonBack" layoutX="30.0" layoutY="-8.0" mnemonicParsing="false" onAction="#goBack" prefHeight="76.0" prefWidth="41.0" rotate="90.0" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px; -fx-shape: &quot;M0 0 L0 50 L25 75 L50 50 L50 00 Z&quot;;" textFill="#fcfcfc" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="-8.0">
+      <Button fx:id="ButtonBack" layoutX="30.0" layoutY="-8.0" mnemonicParsing="false" onAction="#goBack" prefHeight="76.0" prefWidth="30.0" rotate="90.0" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px; -fx-shape: &quot;M0 0 L0 55 L25 75 L50 55 L50 00 Z&quot;;" textFill="#fcfcfc" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="-8.0">
          <font>
             <Font name="Yu Gothic UI Light" size="15.0" />
          </font>

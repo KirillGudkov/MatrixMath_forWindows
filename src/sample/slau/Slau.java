@@ -1,4 +1,5 @@
 package sample.slau;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -25,6 +27,7 @@ import java.util.List;
 
 public class Slau {
     private Stage stage;
+    private Pane forLoad = new Pane();
     private int selectedCountValue;
     private Matrix matrix;
     private Matrix vector;
@@ -52,6 +55,20 @@ public class Slau {
         matrix = new Matrix(0, 0, paneForValue);
         vector = new Matrix(0,0, paneForVector);
         next.setDisable(true);
+    }
+
+    public void showLoading () {
+        javafx.scene.image.Image image = new javafx.scene.image.Image("file:resources/image/anim.gif");
+        ImageView imageView = new ImageView(image);
+        imageView.setX(360);
+        imageView.setY(180);
+        forLoad.setStyle("-fx-background-color: #3399FF; -fx-min-width: 900px; -fx-min-height: 500px;");
+        forLoad.getChildren().add(imageView);
+        Platform.runLater(()-> {anchor.getChildren().add(forLoad);});
+    }
+
+    public void hideLoading () {
+        Platform.runLater(()->{anchor.getChildren().remove(forLoad);});
     }
 
     public void setStage(Stage stage) {
@@ -88,13 +105,37 @@ public class Slau {
 
     public void goForward(ActionEvent actionEvent) throws Exception{
         if (matrix.checkValue() == 0 && vector.checkValue() == 0) {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("matrix", matrix.getList());
-            jsonObject.put("vector", vector.getList());
-            System.out.println(jsonObject.toString());
-            Client client = new Client();
-            Response response = new Response();
-            response.showResponse(actionEvent, client.initConnection(jsonObject, "solve"), Integer.parseInt(countValue.getValue().toString()), Integer.parseInt(countValue.getValue().toString()));
+            Thread resp = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("matrix", matrix.getList());
+                        jsonObject.put("vector", vector.getList());
+                        System.out.println(jsonObject.toString());
+                        Client client = new Client();
+                        Response response = new Response();
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, "solve", stage), Integer.parseInt(countValue.getValue().toString()), Integer.parseInt(countValue.getValue().toString()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            Thread load = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        showLoading();
+                        resp.start();
+                        resp.join();
+                        hideLoading();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            load.start();
         }
         else {
             Dialog dialog = new Dialog();
