@@ -7,7 +7,7 @@ main window:
 
 load animation:
 
-![ScreenShot](https://github.com/KirillGudkov/matrixMathClient/blob/master/load.PNG)
+![ScreenShot](https://github.com/KirillGudkov/matrixMathClient/blob/master/load.png)
 
 find solution system:
 ![ScreenShot](https://github.com/KirillGudkov/matrixMathClient/blob/master/ScreenShot.PNG)
