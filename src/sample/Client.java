@@ -1,11 +1,9 @@
 package sample;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import sample.dialog.Dialog;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,6 +13,8 @@ import java.net.URL;
 
 /**
  * Created by sillybird on 14.04.2016.
+ * Simple class. Method initConnection() create connection and send HTTP request w JSON file
+ * and method readStreamToString gets response
  */
 
 public class Client {

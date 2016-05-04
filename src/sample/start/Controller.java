@@ -39,7 +39,7 @@ public class Controller {
 
     public void initialize () {
         multiplicate.setDisable(true);
-    }
+}
 
     public void slau(ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
