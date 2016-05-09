@@ -72,6 +72,7 @@ public class Invert {
         heightMatrix.setItems(observableList);
         next.setDisable(true);
         matrix = new Matrix(0, 0, paneForMatrix);
+        System.out.println(stage);
     }
 
     public void initMatrix () {
@@ -120,7 +121,7 @@ public class Invert {
                         System.out.println(jsonObject.toString());
                         Client client = new Client();
                         Response response = new Response();
-                        response.showResponse(actionEvent, client.initConnection(jsonObject, "invert", stage), Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, "invert", stage), stage, Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

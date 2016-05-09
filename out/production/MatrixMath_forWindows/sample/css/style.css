@@ -1,0 +1,28 @@
+.btn-inside {
+    -fx-cursor: hand;
+    -fx-border-color: #99CCCC;
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-min-width: 83px;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 0px 1px;
+}
+.btn-inside:hover {
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255, 255, 255, 0.6);
+    -fx-border-style: solid;
+    -fx-min-width: 84px;
+    -fx-border-width: 1px;
+}
+.btn {
+    -fx-cursor: hand;
+    -fx-border-color: #99CCCC;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 0px 1px;
+}
+.btn:hover {
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-style: solid;
+    -fx-min-width: 301px;
+    -fx-border-width: 1px;
+}

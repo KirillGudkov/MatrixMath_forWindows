@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="400.0" style="-fx-background-color: #3399FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.start.Controller">
+   <children>
+      <Label layoutX="123.0" layoutY="64.0" minHeight="30.0" minWidth="155.0" prefHeight="30.0" prefWidth="155.0" text="Что вы хотите сделать?" textFill="WHITE" AnchorPane.leftAnchor="123.0" AnchorPane.topAnchor="64.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="900.0" text="Добро пожаловать в MatrixMath" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="slau" layoutX="57.0" layoutY="115.0" mnemonicParsing="false" onAction="#slau" prefHeight="39.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0);" styleClass="btn" stylesheets="@../css/style.css" text="Решить СЛАУ                                                      &gt;" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="multiplicate" layoutX="57.0" layoutY="175.0" mnemonicParsing="false" onAction="#multiplicate" prefHeight="39.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0);" styleClass="btn" stylesheets="@../css/style.css" text="Умножить на число                                             &gt;" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="transpose" layoutX="57.0" layoutY="233.0" mnemonicParsing="false" onAction="#transpose" prefHeight="39.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0);" styleClass="btn" stylesheets="@../css/style.css" text="Транспонировать                                                &gt;" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="binary" layoutX="57.0" layoutY="298.0" mnemonicParsing="false" onAction="#binary" prefHeight="39.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0);" styleClass="btn" stylesheets="@../css/style.css" text="Бинарные операции                                           &gt;" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="det" layoutX="57.0" layoutY="356.0" mnemonicParsing="false" onAction="#det" prefHeight="39.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0);" styleClass="btn" stylesheets="@../css/style.css" text="Определитель                                                     &gt;" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="invert" layoutX="57.0" layoutY="411.0" mnemonicParsing="false" onAction="#invert" prefHeight="39.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0);" styleClass="btn" stylesheets="@../css/style.css" text="Обратная матрица                                              &gt;" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

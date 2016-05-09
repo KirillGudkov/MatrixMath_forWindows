@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_matrixmath_forwindows" default="compile.module.matrixmath_forwindows">
+  <dirname property="module.matrixmath_forwindows.basedir" file="${ant.file.module_matrixmath_forwindows}"/>
+  
+  <property name="module.jdk.home.matrixmath_forwindows" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.matrixmath_forwindows" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.matrixmath_forwindows" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.matrixmath_forwindows" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="matrixmath_forwindows.output.dir" value="${module.matrixmath_forwindows.basedir}/out/production/MatrixMath_forWindows"/>
+  <property name="matrixmath_forwindows.testoutput.dir" value="${module.matrixmath_forwindows.basedir}/out/test/MatrixMath_forWindows"/>
+  
+  <path id="matrixmath_forwindows.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="matrixmath_forwindows.module.production.classpath">
+    <path refid="${module.jdk.classpath.matrixmath_forwindows}"/>
+    <path refid="library.json-simple-1.1.1.classpath"/>
+  </path>
+  
+  <path id="matrixmath_forwindows.runtime.production.module.classpath">
+    <path refid="library.json-simple-1.1.1.classpath"/>
+    <pathelement location="${matrixmath_forwindows.output.dir}"/>
+  </path>
+  
+  <path id="matrixmath_forwindows.module.classpath">
+    <path refid="${module.jdk.classpath.matrixmath_forwindows}"/>
+    <path refid="library.json-simple-1.1.1.classpath"/>
+    <pathelement location="${matrixmath_forwindows.output.dir}"/>
+  </path>
+  
+  <path id="matrixmath_forwindows.runtime.module.classpath">
+    <path refid="library.json-simple-1.1.1.classpath"/>
+    <pathelement location="${matrixmath_forwindows.testoutput.dir}"/>
+    <pathelement location="${matrixmath_forwindows.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.matrixmath_forwindows">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.matrixmath_forwindows">
+    <patternset refid="excluded.from.module.matrixmath_forwindows"/>
+  </patternset>
+  
+  <path id="matrixmath_forwindows.module.sourcepath">
+    <dirset dir="${module.matrixmath_forwindows.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.matrixmath_forwindows" depends="compile.module.matrixmath_forwindows.production,compile.module.matrixmath_forwindows.tests" description="Compile module MatrixMath_forWindows"/>
+  
+  <target name="compile.module.matrixmath_forwindows.production" depends="register.custom.compilers" description="Compile module MatrixMath_forWindows; production classes">
+    <mkdir dir="${matrixmath_forwindows.output.dir}"/>
+    <javac2 destdir="${matrixmath_forwindows.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.matrixmath_forwindows}/javac">
+      <compilerarg line="${compiler.args.matrixmath_forwindows}"/>
+      <bootclasspath refid="matrixmath_forwindows.module.bootclasspath"/>
+      <classpath refid="matrixmath_forwindows.module.production.classpath"/>
+      <src refid="matrixmath_forwindows.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.matrixmath_forwindows"/>
+    </javac2>
+    
+    <copy todir="${matrixmath_forwindows.output.dir}">
+      <fileset dir="${module.matrixmath_forwindows.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.matrixmath_forwindows.tests" depends="register.custom.compilers,compile.module.matrixmath_forwindows.production" description="compile module MatrixMath_forWindows; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.matrixmath_forwindows" description="cleanup module">
+    <delete dir="${matrixmath_forwindows.output.dir}"/>
+    <delete dir="${matrixmath_forwindows.testoutput.dir}"/>
+  </target>
+</project>

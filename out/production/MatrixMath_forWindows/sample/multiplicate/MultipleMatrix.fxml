@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #3399FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.multiplicate.MultipleMatrix">
+   <children>
+      <Label fx:id="back" layoutX="31.0" layoutY="18.0" prefHeight="17.0" prefWidth="55.0" text="назад" textFill="WHITE" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="8.0" layoutY="5.0" prefHeight="50.0" prefWidth="900.0" text="Бинарные операции над матрицами" textFill="WHITE" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="34.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="widthMatrixOne" layoutX="165.0" layoutY="124.0" onAction="#widthMatrixOneChange" prefHeight="27.0" prefWidth="101.0" promptText="ширина" style="-fx-background-color: #3399FF; -fx-mark-color: #ffffff; -fx-color: #666699; -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px;" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="124.0" />
+      <Label alignment="CENTER" layoutX="274.0" layoutY="71.0" prefHeight="29.0" prefWidth="353.0" text="Выберите размеры матриц и знак операции" textFill="WHITE" AnchorPane.leftAnchor="274.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="71.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="17.0" />
+         </font>
+      </Label>
+      <Pane fx:id="paneForOne" layoutX="31.0" layoutY="164.0" prefHeight="261.0" prefWidth="384.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="164.0" />
+      <ComboBox fx:id="sign" layoutX="425.0" layoutY="124.0" onAction="#signChange" prefHeight="27.0" prefWidth="65.0" promptText="..." style="-fx-background-color: #3399FF; -fx-mark-color: #ffffff; -fx-color: #666699; -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px;" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="410.0" AnchorPane.topAnchor="124.0" />
+      <Label alignment="CENTER" layoutX="752.0" layoutY="123.0" prefHeight="29.0" prefWidth="134.0" text="вторая матрица" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="123.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="123.0" prefHeight="29.0" prefWidth="144.0" text="первая матрица" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="123.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="ButtonBack" layoutX="30.0" layoutY="-8.0" mnemonicParsing="false" onAction="#goBack" prefHeight="76.0" prefWidth="30.0" rotate="90.0" style="-fx-background-color: rgba(0, 0, 0, 0); -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px; -fx-shape: &quot;M0 0 L0 55 L25 75 L50 55 L50 00 Z&quot;;" textFill="#fcfcfc" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="-8.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="next" layoutX="803.0" layoutY="453.0" mnemonicParsing="false" onAction="#goForward" prefHeight="33.0" prefWidth="83.0" styleClass="btn-inside" stylesheets="@../css/style.css" text="Далее" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="445.0" prefHeight="41.0" prefWidth="769.0" text="Операция умножения двух матриц выполнима только в том случае, если число столбцов в первом сомножителе равно числу строк во втором. Складывать можно только матрицы одинакового размера." textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="117.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="heightMatrixOne" layoutX="305.0" layoutY="124.0" onAction="#heightMatrixOneChange" prefHeight="27.0" prefWidth="101.0" promptText="высота" style="-fx-background-color: #3399FF; -fx-mark-color: #ffffff; -fx-color: #666699; -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px;" AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="124.0" />
+      <Label alignment="CENTER" layoutX="266.0" layoutY="123.0" prefHeight="29.0" prefWidth="39.0" text="х" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="609.0" layoutY="123.0" prefHeight="29.0" prefWidth="39.0" text="х" textFill="WHITE" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="123.0">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="heightMatrixTwo" layoutX="647.0" layoutY="124.0" onAction="#heightMatrixTwoChange" prefHeight="27.0" prefWidth="101.0" promptText="высота" style="-fx-background-color: #3399FF; -fx-mark-color: #ffffff; -fx-color: #666699; -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px;" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="124.0" />
+      <ComboBox fx:id="widthMatrixTwo" layoutX="508.0" layoutY="124.0" onAction="#widthMatrixTwoChange" prefHeight="27.0" prefWidth="101.0" promptText="ширина" style="-fx-background-color: #3399FF; -fx-mark-color: #ffffff; -fx-color: #666699; -fx-border-color: rgba(255, 255, 255, 0.6); -fx-border-radius: 2px;" AnchorPane.rightAnchor="291.0" />
+      <Pane fx:id="paneForTwo" layoutX="509.0" layoutY="164.0" prefHeight="261.0" prefWidth="378.0" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="164.0" />
+   </children>
+</AnchorPane>

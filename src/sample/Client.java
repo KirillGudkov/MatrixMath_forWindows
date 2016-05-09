@@ -18,6 +18,7 @@ import java.net.URL;
  */
 
 public class Client {
+
     private String html;
     public String initConnection (JSONObject json, String operation, Stage stage) throws Exception {
         HttpURLConnection connection = (HttpURLConnection)new URL("http://dota2begin.tk:80/server/api/" + operation).openConnection();
@@ -36,9 +37,10 @@ public class Client {
                 System.out.println(html);
             }
             catch (IOException e) {
+                e.printStackTrace();
                 Dialog dialog = new Dialog();
                 Label label = new Label();
-                label.setText("Server fatal error!");
+                label.setText("fatal");
                 dialog.showDialog(stage, label);
             }
 

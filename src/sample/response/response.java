@@ -32,7 +32,9 @@ import java.util.Random;
  */
 public class Response {
     private Stage stage;
+    Stage parentStage;
     private Label[][] text;
+    private Label[] SLAURes;
     private String code;
     private String message;
     private String result;
@@ -44,19 +46,22 @@ public class Response {
     @FXML
     Pane pane;
 
-    public void showResponse(ActionEvent actionEvent, String htmlResponse, int width, int height) throws Exception {
+    public void showResponse(ActionEvent actionEvent, String htmlResponse, Stage parentStage, int width, int height) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../response/response.fxml"));
         loader.setController(this);
         Parent root = (Parent) loader.load();
         Platform.runLater(()-> {stage = new Stage();});
-            Platform.runLater(()-> {stage.setScene(new Scene(root));});
-                Platform.runLater(()-> {stage.setMinHeight(400);});
-                    Platform.runLater(()-> {stage.setMinWidth(600);});
-                        Platform.runLater(()-> {stage.getIcons().add(new Image("file:resources/image/icon.png"));});
-                            Platform.runLater(()-> {stage.setTitle("Ответ");});
-                                Platform.runLater(()-> {stage.initModality(Modality.WINDOW_MODAL);});
-                                    Platform.runLater(()-> {stage.setResizable(false);});
-                                        Platform.runLater(()-> {stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());});
+            Platform.runLater(()-> {this.parentStage = parentStage;});
+                Platform.runLater(()-> {stage.setScene(new Scene(root));});
+                    Platform.runLater(()-> {stage.setMinHeight(400);});
+                        Platform.runLater(()-> {stage.setMinWidth(600);});
+                            Platform.runLater(()-> {stage.getIcons().add(new Image("file:resources/image/icon.png"));});
+                                Platform.runLater(()-> {stage.setTitle("Ответ");});
+                                    Platform.runLater(()-> {stage.initModality(Modality.WINDOW_MODAL);});
+                                        Platform.runLater(()-> {stage.setResizable(false);});
+                                            Platform.runLater(() -> {
+                                                stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+                                            });
         parseJson(htmlResponse, width, height, actionEvent);
     }
 
@@ -85,33 +90,16 @@ public class Response {
      * - ну и опять же суём это все в UI
      **/
 
-    public void parseJson(String htmlResponse, int width, int height, ActionEvent actionEvent) throws Exception {
-        JSONParser parser = new JSONParser();
-        Object object = parser.parse(htmlResponse);
-        JSONObject jsonObject = (JSONObject) object;
-
-        if (jsonObject.get("status_code") != null && jsonObject.get("status_message") != null) {
-            code = jsonObject.get("status_code").toString();
-            message = jsonObject.get("status_message").toString();
-            System.out.println("Код : " + code);
-            System.out.println("Сообщение от сервера: " + message);
-
-            if (code.equalsIgnoreCase("200")) {
-                result = jsonObject.get("result").toString();
-                System.out.println("Результат вычислений: " + result);
-
-                if ((jsonObject.get("result")).getClass().toString().equalsIgnoreCase("class org.json.simple.JSONArray")) {
-                    JSONArray arr = (JSONArray) jsonObject.get("result");
-
-                    double[][] arrayResponse = new double[arr.size()][arr.size()];
-                    for (int i = 0; i < width; i++) {
-                        for (int j = 0; j < height; j++) {
+    public void showOtherResult (JSONArray arr, int width, int height) {
+        double[][] arrayResponse = new double[height][width];
+                    for (int i = 0; i < height; i++) {
+                        for (int j = 0; j < width; j++) {
                             arrayResponse[i][j] = Double.parseDouble(((JSONArray) arr.get(i)).get(j).toString());
                         }
                     }
-                    text = new Label[width][height];
-                    for (int i = 0; i < width; i++) {
-                        for (int j = 0; j < height; j++) {
+                    text = new Label[height][width];
+                    for (int i = 0; i < height; i++) {
+                        for (int j = 0; j < width; j++) {
                             text[i][j] = new Label();
                             text[i][j].setAlignment(Pos.TOP_RIGHT);
                             text[i][j].setText(String.valueOf(arrayResponse[i][j]));
@@ -136,13 +124,82 @@ public class Response {
                         }
                     }
                     Platform.runLater(()->{stage.show();});
+    }
 
-                } else {
+    public void showSLAUResult (JSONArray arr, int width) {
+        double [] arraySLAUResponse = new double[arr.size()];
+        for (int i = 0; i < width; i++) {
+            arraySLAUResponse[i] = Double.parseDouble((arr.get(i)).toString());
+        }
+
+        SLAURes = new Label[width];
+        for (int i = 0; i < width; i++) {
+            SLAURes[i] = new Label();
+            SLAURes[i].setAlignment(Pos.TOP_RIGHT);
+            SLAURes[i].setText(String.valueOf(arraySLAUResponse[i]));
+            SLAURes[i].setLayoutY(i * 45);
+            SLAURes[i].setStyle("-fx-min-width: 50px; -fx-min-height: 25px;-fx-alignment: center; -fx-background-color:  #3399FF; -fx-border-color: rgba(255, 255, 255, 0.6); " +
+                        "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
+                Random random = new Random(System.currentTimeMillis());
+            scale = random.nextInt((2001) - 700);
+            FadeTransition fadeTransition = new FadeTransition(Duration.millis(scale), SLAURes[i]);
+                fadeTransition.setFromValue(0);
+                fadeTransition.setToValue(1);
+                TranslateTransition translateTransition = new TranslateTransition(Duration.millis(scale), SLAURes[i]);
+                translateTransition.setFromY(250);
+                translateTransition.setToY(0);
+                parallelTransition = new ParallelTransition();
+                parallelTransition.getChildren().addAll(fadeTransition, translateTransition);
+                parallelTransition.play();
+                int finalI = i;
+                Platform.runLater(()->{pane.getChildren().add(SLAURes[finalI]);});
+        }
+        Platform.runLater(()->{stage.show();});
+    }
+
+    public boolean checkArrayDefenition (JSONArray arr){
+        boolean result = false;
+        if (arr.toString().contains("],[")) {
+            result = true;
+            return result;
+        }
+        else {
+            return result;
+        }
+    }
+
+    public void parseJson(String htmlResponse, int width, int height, ActionEvent actionEvent) throws Exception {
+        JSONParser parser = new JSONParser();
+        Object object = parser.parse(htmlResponse);
+        JSONObject jsonObject = (JSONObject) object;
+
+        if (jsonObject.get("status_code") != null && jsonObject.get("status_message") != null) {
+            code = jsonObject.get("status_code").toString();
+            message = jsonObject.get("status_message").toString();
+            System.out.println("код сервера: " + code);
+            System.out.println("Сообщение от сервера: " + message);
+
+            if (code.equalsIgnoreCase("200")) {
+                result = jsonObject.get("result").toString();
+                System.out.println("Результат вычислений: " + result);
+
+                if ((jsonObject.get("result")).getClass().toString().equalsIgnoreCase("class org.json.simple.JSONArray")) {
+                    JSONArray arr = (JSONArray) jsonObject.get("result");
+                        if (checkArrayDefenition(arr) == true) {
+                            showOtherResult(arr, width, height);
+                        }
+                        else
+                            showSLAUResult(arr, width);
+                }
+
+                else {
                     Label lab = new Label();
                     lab.setStyle("-fx-min-width: 50px; -fx-min-height: 25px;-fx-alignment: center; -fx-background-color:  #3399FF; -fx-border-color: rgba(255, 255, 255, 0.6); " +
                             "-fx-font-family: Yu Gothic UI Light; -fx-text-fill: white; ");
                     lab.setText(jsonObject.get("result").toString());
-                    Platform.runLater(()->{pane.getChildren().add(lab);});
+                    Platform.runLater(() -> {
+                        pane.getChildren().add(lab);
+                    });
                     Platform.runLater(()->{lab.setAlignment(Pos.CENTER);});
                     Platform.runLater(()->{stage.show();});
                 }
@@ -150,7 +207,7 @@ public class Response {
                 Dialog dialog = new Dialog();
                 Label label = new Label();
                 label.setText(code + "; " + message);
-                dialog.showDialog(stage, label);
+                dialog.showDialog(parentStage, label);
             }
         } else if (jsonObject.get("error") != null) {
             Dialog dialog = new Dialog();

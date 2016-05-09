@@ -37,19 +37,19 @@ public class Dialog {
         loader.setController(this);
         Parent root = (Parent)loader.load();
         Platform.runLater(()->{stage = new Stage();});
-        Platform.runLater(()->{stage.setScene(new Scene(root));});
-            Platform.runLater(()->{stage.setMinHeight(120);});
-                Platform.runLater(()->{stage.setMinWidth(400);});
-                    Platform.runLater(()->{stage.getIcons().add(new Image("file:resources/image/error.png"));});
-                        Platform.runLater(()->{stage.setTitle("error");});
-                            Platform.runLater(()->{stage.initModality(Modality.WINDOW_MODAL);});
-                                Platform.runLater(()->{stage.setResizable(false);});
-                                    Platform.runLater(()->{stage.initOwner(owner);});
+            Platform.runLater(()->{stage.setScene(new Scene(root));});
+                Platform.runLater(()->{stage.setMinHeight(120);});
+                    Platform.runLater(()->{stage.setMinWidth(400);});
+                        Platform.runLater(()->{stage.getIcons().add(new Image("file:resources/image/error.png"));});
+                            Platform.runLater(()->{stage.setTitle("error");});
+                                Platform.runLater(()->{stage.initModality(Modality.WINDOW_MODAL);});
+                                    Platform.runLater(()->{stage.setResizable(false);});
+                                        Platform.runLater(()->{stage.initOwner(owner);});
         label.setStyle("-fx-min-width: 380px; -fx-max-width: 380px; -fx-min-height: 90px; -fx-background-color:  rgba(0, 0, 0, 0); -fx-wrap-text: true; -fx-font-family: Yu Gothic UI Light; -fx-font-size: 14px; -fx-text-fill: white;");
         label.setWrapText(true);
         Platform.runLater(()->{paneForError.getChildren().add(label);});
         System.out.println(owner);
-                                        Platform.runLater(()->{stage.show();});
+        Platform.runLater(()->{stage.show();});
     }
 
     public void ok(ActionEvent actionEvent) {

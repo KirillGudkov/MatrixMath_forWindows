@@ -121,7 +121,7 @@ public class Trans {
                         System.out.println(jsonObject.toString());
                         Client client = new Client();
                         Response response = new Response();
-                        response.showResponse(actionEvent, client.initConnection(jsonObject, "transpose", stage), Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, "transpose", stage), stage,  Integer.parseInt(widthMatrix.getValue().toString()), Integer.parseInt(heightMatrix.getValue().toString()));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

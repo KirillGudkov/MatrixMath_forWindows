@@ -195,7 +195,7 @@ public class MultipleMatrix {
                         System.out.println(getSign());
                         Client client = new Client();
                         Response response = new Response();
-                        response.showResponse(actionEvent, client.initConnection(jsonObject, getSign(), stage), Integer.parseInt(widthMatrixOne.getValue().toString()), Integer.parseInt(heightMatrixOne.getValue().toString()));
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, getSign(), stage), stage,  Integer.parseInt(widthMatrixOne.getValue().toString()), Integer.parseInt(heightMatrixOne.getValue().toString()));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

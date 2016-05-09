@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import sample.det.Det;
 import sample.invert.Invert;
@@ -103,11 +102,11 @@ public class Controller {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 900, 500);
         Invert controller = fxmlLoader.getController();
-        controller.setStage(stage);
         stage.setTitle("Нахождение обратной матрицы");
         stage.setX((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-450);
         stage.setY((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-250);
         stage.setScene(scene);
+        controller.setStage(stage);
         controller.initInvert();
     }
 

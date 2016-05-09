@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import sample.Client;
 import sample.Matrix;
+import sample.Vector;
 import sample.dialog.Dialog;
 import sample.response.Response;
 import sample.start.Controller;
@@ -30,7 +31,7 @@ public class Slau {
     private Pane forLoad = new Pane();
     private int selectedCountValue;
     private Matrix matrix;
-    private Matrix vector;
+    private Vector vector;
     private List<Integer> list = new ArrayList<>();
     private ObservableList<Integer> observableList = FXCollections.observableList(list);
 
@@ -53,7 +54,7 @@ public class Slau {
         observableList.addAll(2, 3, 4, 5, 6);
         countValue.setItems(observableList);
         matrix = new Matrix(0, 0, paneForValue);
-        vector = new Matrix(0,0, paneForVector);
+        vector = new Vector(0, paneForVector);
         next.setDisable(true);
     }
 
@@ -79,13 +80,21 @@ public class Slau {
     public void initMatrix() {
         selectedCountValue = Integer.parseInt(countValue.getValue().toString());
         matrix = new Matrix(selectedCountValue, selectedCountValue, paneForValue);
-        vector = new Matrix(1, selectedCountValue, paneForVector);
     }
+
+    public void initVector() {
+        selectedCountValue = Integer.parseInt(countValue.getValue().toString());
+        vector = new Vector(selectedCountValue, paneForVector);
+    }
+
     public void countChange(ActionEvent actionEvent) {
         next.setDisable(false);
         matrix.removeMatrix(paneForValue);
-        vector.removeMatrix(paneForVector);
-        try {initMatrix();}
+        vector.removeVector(paneForVector);
+        try {
+            initMatrix();
+            initVector();
+        }
         catch (NullPointerException e) {}
     }
     public void goBack(ActionEvent actionEvent) throws Exception {
@@ -115,7 +124,7 @@ public class Slau {
                         System.out.println(jsonObject.toString());
                         Client client = new Client();
                         Response response = new Response();
-                        response.showResponse(actionEvent, client.initConnection(jsonObject, "solve", stage), Integer.parseInt(countValue.getValue().toString()), Integer.parseInt(countValue.getValue().toString()));
+                        response.showResponse(actionEvent, client.initConnection(jsonObject, "solve", stage), stage, Integer.parseInt(countValue.getValue().toString()), Integer.parseInt(countValue.getValue().toString()));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
